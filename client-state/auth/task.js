@@ -1,4 +1,5 @@
 const welcome = document.getElementById('welcome');
+const signin = document.getElementById('signin');
 
 document.forms.signin__form.onsubmit = async (e) => {
 	e.preventDefault();
@@ -9,11 +10,11 @@ document.forms.signin__form.onsubmit = async (e) => {
     });
 
     let result = await response.json();
-	if (result.success === true) {
-		localStorage.setItem('user_id', result.user_id);
+	if (result.success === true && response.status === 200) {
 		localStorage.setItem('data_auth', JSON.stringify(result));
-		welcome.classList.toggle('welcome_active');
-		welcome.children.user_id.textContent = result.user_id;
+		signin.classList.toggle('signin_active');
+		welcome.classList.add('welcome_active');
+		welcome.textContent = `Добро пожаловать, пользователь #${result.user_id}`;
 	} else {
 		welcome.classList.add('welcome_active');
 		welcome.textContent = 'Неверный логин/пароль';
