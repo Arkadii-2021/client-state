@@ -2,7 +2,6 @@ const welcome = document.getElementById('welcome');
 const signin = document.getElementById('signin');
 const columnForm = document.getElementsByTagName('input');
 
-console.log(columnForm);
 document.forms.signin__form.onsubmit = async (e) => {
 	e.preventDefault();
 
