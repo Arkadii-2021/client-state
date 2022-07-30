@@ -1,6 +1,8 @@
 const welcome = document.getElementById('welcome');
 const signin = document.getElementById('signin');
+const columnForm = document.getElementsByTagName('input');
 
+console.log(columnForm);
 document.forms.signin__form.onsubmit = async (e) => {
 	e.preventDefault();
 
@@ -16,6 +18,8 @@ document.forms.signin__form.onsubmit = async (e) => {
 		welcome.classList.add('welcome_active');
 		welcome.textContent = `Добро пожаловать, пользователь #${result.user_id}`;
 	} else {
+		columnForm.login.value = ''
+		columnForm.password.value = ''
 		welcome.classList.add('welcome_active');
 		welcome.textContent = 'Неверный логин/пароль';
 	}
