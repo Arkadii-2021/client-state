@@ -2,7 +2,7 @@ const subscribeModal = document.getElementById('subscribe-modal');
 const modalClose = document.getElementsByClassName('modal__close modal__close_times')[0];
 
 function elModal() {
-    if (getCookie('modalActive') === undefined) {
+    if (!getCookie('modalActive')) {
         subscribeModal.classList.add('modal_active');
         modalClose.addEventListener('click', (event) => {
             subscribeModal.classList.toggle('modal_active');
